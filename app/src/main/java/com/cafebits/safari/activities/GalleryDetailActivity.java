@@ -35,7 +35,8 @@ public class GalleryDetailActivity extends AppCompatActivity {
         if ( getIntent() != null && getIntent().getExtras() != null ) {
             if ( getIntent().getExtras().containsKey( EXTRA_IMAGE ) ) {
                 Picasso.with( this )
-                        .load( getIntent().getExtra)
+                        .load( getIntent().getExtras().getString( EXTRA_IMAGE ))
+                        .into( mimageView );
             }
         }
     }
