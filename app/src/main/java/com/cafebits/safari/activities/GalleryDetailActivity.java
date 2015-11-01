@@ -38,6 +38,10 @@ public class GalleryDetailActivity extends AppCompatActivity {
                         .load( getIntent().getExtras().getString( EXTRA_IMAGE ))
                         .into( mimageView );
             }
+
+            if ( getIntent().getExtras().containsKey( EXTRA_CAPTION ) ) {
+                mCaptionTextView.setText( getIntent().getExtras().getString( EXTRA_CAPTION ) );
+            }
         }
     }
 

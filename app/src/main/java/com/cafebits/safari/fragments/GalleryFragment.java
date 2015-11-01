@@ -1,5 +1,6 @@
 package com.cafebits.safari.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,9 +8,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.cafebits.safari.R;
+import com.cafebits.safari.activities.GalleryDetailActivity;
 import com.cafebits.safari.adapters.GalleryImageAdapter;
 import com.cafebits.safari.models.GalleryImage;
 import com.cafebits.safari.services.SafariService;
@@ -26,7 +29,7 @@ import retrofit.Retrofit;
 /**
  * Created by Gilbert on 10/28/15.
  */
-public class GalleryFragment extends Fragment {
+public class GalleryFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     public static String TAG = GalleryFragment.class.getSimpleName();
 
@@ -50,6 +53,8 @@ public class GalleryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mGridView = (GridView) view.findViewById( R.id.grid );
+        mGridView.setOnItemClickListener( this );
+        mGridView.setDrawSelectorOnTop( true );
     }
 
     @Override
@@ -92,5 +97,15 @@ public class GalleryFragment extends Fragment {
                 Log.e("Safari:", "Retrofit error " + t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        GalleryImage image = (GalleryImage) parent.getItemAtPosition( position );
+        Intent intent = new Intent( getActivity(), GalleryDetailActivity.class );
+        intent.putExtra( GalleryDetailActivity.EXTRA_IMAGE, image.getImage() );
+        intent.putExtra( GalleryDetailActivity.EXTRA_CAPTION, image.getCaption() );
+        startActivity( intent );
     }
 }
