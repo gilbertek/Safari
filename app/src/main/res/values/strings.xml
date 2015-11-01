@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Safari</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="drawer_opened">Select an Item</string>
+    <string name="drawer_close">Safari</string>
+    <string name="title_activity_exhibit_detail">Exhibit Detail</string>
+    <string name="title_activity_gallery_detail">GalleryDetailActivity</string>
+</resources>
