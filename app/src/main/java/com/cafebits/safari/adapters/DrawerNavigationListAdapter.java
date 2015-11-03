@@ -24,12 +24,12 @@ public class DrawerNavigationListAdapter extends ArrayAdapter<String> {
         if ( convertView == null ) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from( getContext() ).inflate(R.layout.navigation_drawer_list_item, parent, false );
+            holder.title = (TextView) convertView.findViewById( R.id.title );
             convertView.setTag( holder );
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.title = (TextView) convertView.findViewById( R.id.title );
         holder.title.setText( getItem( position ) );
 
         return convertView;

@@ -8,7 +8,7 @@ import retrofit.Retrofit;
  */
 public class RetrofitHelper {
 
-    final private String EXHIBITS_FEED = "http://services.hanselandpetal.com";
+    final private String EXHIBITS_FEED = "http://cafebits.com";
 
     public SafariService safariService() {
         Retrofit retrofit = new Retrofit.Builder()

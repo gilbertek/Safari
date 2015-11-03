@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.cafebits.safari.R;
 import com.cafebits.safari.adapters.DrawerNavigationListAdapter;
 import com.cafebits.safari.events.DrawerSectionItemClickedEvent;
 import com.cafebits.safari.utils.EventBus;
@@ -28,9 +29,9 @@ public class DrawerNavigationListView extends ListView implements AdapterView.On
 
         DrawerNavigationListAdapter adapter = new DrawerNavigationListAdapter( getContext(), 0);
 
-        adapter.add("Exhibits");
-        adapter.add("Gallery");
-        adapter.add("Maps");
+        adapter.add( getContext().getString( R.string.section_exhibits ) );
+        adapter.add(getContext().getString( R.string.section_gallery ) );
+        adapter.add(getContext().getString( R.string.section_maps ) );
 
         setAdapter(adapter);
         setOnItemClickListener( this );

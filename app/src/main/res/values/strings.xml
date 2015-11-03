@@ -6,4 +6,10 @@
     <string name="drawer_close">Safari</string>
     <string name="title_activity_exhibit_detail">Exhibit Detail</string>
     <string name="title_activity_gallery_detail">GalleryDetailActivity</string>
+    <string name="google_maps_key">AIzaSyAtDwFwo5sagJvr7Z0gCxhUq-KsFgk9kBc</string>
+
+    <string name="section_exhibits">Exhibits</string>
+    <string name="section_gallery">Gallery</string>
+    <string name="section_maps">Maps</string>
+
 </resources>

@@ -1,6 +1,8 @@
 package com.cafebits.safari.fragments;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -41,13 +43,18 @@ public class ExhibitsListFragment extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
         setListShown(false);
+        getListView().setPadding(16, 16, 16, 16);
+        getListView().setDivider( new ColorDrawable( Color.TRANSPARENT ) );
+        getListView().setDividerHeight( 16 );
+        getListView().setScrollBarStyle( View.SCROLLBARS_OUTSIDE_OVERLAY );
+        getListView().setClipToPadding( true );
 
         mAdapter = new ExhibitsAdapter( getActivity(), 0);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.EXHIBITS_FEED)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+                .baseUrl( Constant.EXHIBITS_FEED )
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
 
         SafariService service = retrofit.create(SafariService.class);
 
@@ -59,7 +66,7 @@ public class ExhibitsListFragment extends ListFragment {
                 int statusCode = response.code();
                 Log.e(TAG, "Retrofit response code " + statusCode );
 
-                if ( response.body().isEmpty() ) {
+                if ( response.body().isEmpty() || !isAdded() ) {
                     return;
                 }
 
@@ -74,7 +81,7 @@ public class ExhibitsListFragment extends ListFragment {
 
             @Override
             public void onFailure(Throwable t) {
-                Log.e("Safari:", "Retrofit error " + t.getMessage());
+                Log.e(TAG, "Retrofit error " + t.getMessage());
             }
         });
 

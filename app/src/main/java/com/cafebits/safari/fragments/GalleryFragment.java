@@ -80,7 +80,7 @@ public class GalleryFragment extends Fragment implements AdapterView.OnItemClick
                 int statusCode = response.code();
                 Log.e(TAG, "Retrofit response code " + statusCode );
 
-                if ( response.body().isEmpty() ) {
+                if ( response.body().isEmpty() || !isAdded() ) {
                     return;
                 }
 
@@ -94,7 +94,7 @@ public class GalleryFragment extends Fragment implements AdapterView.OnItemClick
 
             @Override
             public void onFailure(Throwable t) {
-                Log.e("Safari:", "Retrofit error " + t.getMessage());
+                Log.e(TAG, "Retrofit error " + t.getMessage());
             }
         });
     }
