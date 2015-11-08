@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Safari</string>
     <string name="action_settings">Settings</string>
-    
+
     <string name="drawer_opened">Select an Item</string>
     <string name="drawer_close">Safari</string>
     <string name="title_activity_exhibit_detail">Exhibit Detail</string>
     <string name="title_activity_gallery_detail">GalleryDetailActivity</string>
-    <string name="google_maps_key">AIzaSyAtDwFwo5sagJvr7Z0gCxhUq-KsFgk9kBc</string>
+    <string name="google_maps_key">NULL</string>
 
     <string name="section_exhibits">Exhibits</string>
     <string name="section_gallery">Gallery</string>
